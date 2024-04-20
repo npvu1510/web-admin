@@ -1,0 +1,109 @@
+<link rel="stylesheet" type="text/css" href="/css/order.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{{!-- <div>
+	<div class=" collapse p-0" class="collapse" id="collapseFilter">
+		<div class="row">
+			<div class="status col-12 col-md-6 col-lg-4">
+				<div class="p-3">
+					<h6 class=" text-start mb-2"><b>Status</b></h6>
+					<input type="checkbox" class="filter-item" id="Completed" />
+					<label class="btn btn-light" for="Completed">Completed</label>
+
+					<input type="checkbox" class="filter-item" id="Processing" />
+					<label class="btn btn-light" for="Processing">Processing</label>
+
+					<input type="checkbox" class="filter-item" id="Canceled" />
+					<label class="btn btn-light" for="Canceled">Canceled</label>
+				</div>
+			</div>
+
+			<div class="created col-12 col-md-6 col-lg-3">
+				<div class="p-3">
+					<h6 class=" text-start mb-2">
+						<b>
+							Created
+						</b>
+					</h6>
+					<div class="filter-input-container">
+						<input type="date" class="date-input" name="start-date">
+						to
+						<input type="date" class="date-input" name="end-date">
+					</div>
+				</div>
+			</div>
+
+			<div class="user-name col-12 col-md-6 col-lg-3">
+				<div class="p-3">
+					<h6 class=" text-start mb-2">
+						<b>
+							Username
+						</b>
+					</h6>
+					<div class="filter-input-container">
+						<input type="text" class="user-name-input" name="user-name">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div> --}}
+
+<div class="container-fluid py-4">
+
+	<div class="row">
+		<div class="col-12 ">
+			<div class="card mb-4">
+				<div class="card-body px-0 pt-0 pb-2">
+					<div class="table-responsive p-0">
+						<table class="table align-items-center mb-0">
+							<thead>
+								<tr>
+									<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Order ID
+									</th>
+									<th
+										class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+										Customer
+									</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Date
+									</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Status
+									</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Total
+									</th>
+									<th class="text-center text-secondary opacity-7">
+										Change status
+									</th>
+								</tr>
+							</thead>
+							<tbody id="order-body">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination" style="display: flex; justify-content: right;" id="order-pagination">
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<footer class="footer pt-3  "></footer>
+
+
+
+
+<script src="/js/orderAjax.js"></script>

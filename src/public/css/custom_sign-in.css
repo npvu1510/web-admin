@@ -1,0 +1,18 @@
+body {
+    background-color: #4358D0;
+    background-image: linear-gradient(to top right, #4358D0, #CA50C2);
+}
+
+button.login100-form-btn{
+    background-image: linear-gradient(to top right, #4358D0, #CA50C2) !important;
+    /* background-color: #4758CF !important; */
+}
+
+button.login100-form-btn:hover {
+    background-image: linear-gradient(to bottom left, #4358D0, #CA50C2) !important;
+    /* background-color: #C750C2  !important; */
+}
+
+.announce {
+    color: red;
+}

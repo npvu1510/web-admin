@@ -1,0 +1,103 @@
+.variation-table {
+    font: 400 14px 'Calibri', 'Arial';
+	border-spacing: 1;
+	border-collapse: collapse;
+	background: white;
+	border-radius: 6px;
+	overflow: hidden;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.variation-table * {
+	position: relative;
+}
+.variation-table td, .variation-table th {
+	padding-left: 8px;
+}
+.variation-table thead tr {
+	height: 50px;
+	background: #ffed86;
+	font-size: 16px;
+    color: black;
+}
+.variation-table tbody {
+	background: rgba(140, 240, 156, 0.4);
+	display: block;
+	height: 200px;
+	overflow: auto;
+}
+.variation-table thead, .variation-table tbody tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+   /* even columns width , fix width of table too*/
+}
+.variation-table tbody tr {
+	height: 48px;
+}
+.variation-table tbody tr:last-child {
+	border: 0;
+}
+.variation-table td, .variation-table th {
+	text-align: left;
+}
+.variation-table td.l, .variation-table th.l {
+	text-align: right;
+}
+.variation-table td.c, .variation-table th.c {
+	text-align: center;
+}
+.variation-table td.r, .variation-table th.r {
+	text-align: center;
+}
+@media screen and (max-width: 35.5em) {
+	.variation-table {
+		display: block;
+   }
+	.variation-table > *, .variation-table tr, .variation-table td, .variation-table th {
+		display: block;
+   }
+	.variation-table thead {
+		display: none;
+   }
+	.variation-table tbody tr {
+		height: auto;
+		padding: 8px 0;
+   }
+	.variation-table tbody tr td {
+		padding-left: 45%;
+		margin-bottom: 12px;
+   }
+	.variation-table tbody tr td:last-child {
+		margin-bottom: 0;
+   }
+	.variation-table tbody tr td:before {
+		position: absolute;
+		font-weight: 700;
+		width: 40%;
+		left: 10px;
+		top: 0;
+   }
+	.variation-table tbody tr td:nth-child(1):before {
+		content: "Code";
+   }
+	.variation-table tbody tr td:nth-child(2):before {
+		content: "Stock";
+   }
+	.variation-table tbody tr td:nth-child(3):before {
+		content: "Cap";
+   }
+	.variation-table tbody tr td:nth-child(4):before {
+		content: "Inch";
+   }
+	.variation-table tbody tr td:nth-child(5):before {
+		content: "Box Type";
+   }
+}
+
+select
+{
+    width: 50%;
+}

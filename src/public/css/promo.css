@@ -1,0 +1,27 @@
+#Capa_1:hover, .cls-1 {
+    cursor: pointer;
+}
+
+
+.fa-trash-o, .fa-pencil-square-o {
+    font-size: 18px;
+    transition: 0.3s all ease;
+}
+
+.fa-pencil-square-o:hover {
+    color: blue;
+    font-size: 20px;
+}
+
+.fa-trash-o:hover {
+    color: red;
+    font-size: 20px;
+}
+
+
+form .error
+{
+    color: red;
+    font-size: 8px;
+    font-style:italic
+}

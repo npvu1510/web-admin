@@ -1,0 +1,211 @@
+
+/* admin-user mananger */
+.button-add {
+    border-width: 0px;
+    width: 50%;
+    height: 50px;
+}
+
+.btn-view {
+    border-width: 0px;
+    height: 30px;
+    width: 65px ;
+    text-align: center;
+}
+
+
+.btn-view:hover {
+    background-image: linear-gradient(to bottom right, #8997b4, #546683);
+}
+
+
+.dropdown-toggle {
+    font-size: 12px;
+    font-weight: 600;
+    color: lightgray;
+}
+
+.dropdown-toggle:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.dropdown-menu {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.form-select {
+    border-width: 0px !important;
+    border-radius: 0px;
+}
+
+.form-select:hover {
+    cursor: pointer;
+}
+
+.modal-body div {
+    font-size: 13px;
+}
+
+.modal-body div a:hover{
+    color: #CB0C9F !important;
+}
+
+.in-avatar {
+    border: 2px solid lightgray;
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: contain !important;
+}
+
+i {
+    color: lightgray;
+    transition: 0.2s;
+}
+
+i:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.red-start {
+    color: red;
+}
+
+.profile-edit-intro{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+textarea {
+    border: 1px solid gray;
+}
+
+.right {
+    display: flex;
+    justify-content: right;
+}
+
+.edit_info {
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.hover-zoom:hover {
+    transition: 0.2s all;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.custom-table {
+    border-width: 0px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.product-image {
+    width: 50px !important;
+}
+
+.product-detail-image {
+    width: 100%;
+    object-fit: contain;
+
+}
+
+.card-img {
+    overflow: hidden;
+}
+
+.card-img img{
+    transition: 1s all;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-img:hover img{
+    transform: scale(1.2);
+}
+
+.dot {
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 50%;
+    transition: 0.3s all ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+#add-color-btn {
+    color: black
+}
+
+.form-control-color {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+
+}
+
+.fa-minus-circle:hover {
+    color: red;
+}
+
+.shop__product__option {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.shop__product__option p {
+    color: #111111;
+    margin-bottom: 0;
+}
+
+.shop__product__option__right {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.shop__product__option__right p {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.shop__product__option__right .nice-select {
+    float: none;
+    display: inline-block;
+    padding: 0;
+    line-height: 26px;
+    height: auto;
+    border: none;
+    padding-right: 28px;
+}
+
+.shop__product__option__right .nice-select:after {
+    border-bottom: 1.5px solid #111111;
+    border-right: 1.5px solid #111111;
+    height: 8px;
+    right: 12px;
+    width: 8px;
+}
+
+.shop__product__option__right .nice-select span {
+    color: #111111;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.shop__product__option__right .nice-select .list {
+    border-radius: 0;
+}
+
+select:focus,
+button:focus,
+textarea:focus {
+    outline: none;
+}
+

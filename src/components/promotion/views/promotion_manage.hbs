@@ -1,0 +1,116 @@
+<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+	<div class="container-fluid py-4">
+		<div class="row">
+			<div class="col-12 ">
+				<div class="card mb-4">
+					<div class="card-header pb-0">
+						<h6>Promotion table</h6>
+					</div>
+					<div class="card-body px-0 pt-0 pb-2">
+						<div class="table-responsive p-0">
+							<table class="table align-items-center mb-0">
+								<thead>
+									<tr>
+										<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+											Code
+										</th>
+										<th
+											class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+											Level
+										</th>
+										<th
+											class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+											Slot
+										</th>
+										<th
+											class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+											Duration
+										</th>
+										<th
+											class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										</th>
+
+										<th class="text-secondary opacity-7"></th>
+									</tr>
+								</thead>
+								<tbody id="promotion-body">
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination" style="display: flex; justify-content: right;" id="promotion-pagination">
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="row d-flex flex-column align-items-center">
+
+			{{!-- button add --}}
+			<button onclick="openAddModal()" class=" btn btn-primary button-add" data-bs-toggle="modal"
+				data-bs-target='#add-promotion'>Add
+				Promotion
+			</button>
+		</div>
+
+		<div id="error">
+		</div>
+
+		<!-- Modal add user -->
+		<form id="add-form" action="/manage/promotion/add" method="post">
+			<div class="modal fade" id='add-promotion' tabindex="-1" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Add new promotion</h5>
+						</div>
+
+						<div class="modal-body">
+							<b>Code:</b> <span class="red-start">*</span>
+							<input type="text" class="form-control" placeholder="Code" aria-label="Code" name="code">
+							<h6 class="code error"></h6>
+
+							<b>Level:</b> <span class="red-start">*</span>
+							<input type="text" class="form-control" placeholder="Level" aria-label="Level" name="level">
+							<h6 class="level error"></h6>
+
+							<b>Slot:</b> <span class="red-start">*</span>
+							<input type="text" class="form-control" placeholder="Slot" aria-label="Slot" name="slot">
+							<h6 class="slot error"></h6>
+
+							<b>Duration:</b> <span class="red-start">*</span>
+							<div class="input-group input-group-sm mb-2">
+								<input type="date" name="start_date" class="form-control" style="padding-right: 5px">
+								<input type="date" name="end_date" class="form-control" style="padding-left: 5px">
+							</div>
+							<h6 class="start_date error"></h6>
+							<h6 class="end_date error"></h6>
+
+							<div class="modal-footer">
+								<h6 class="general-error"></h6>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+								</button>
+								<button type="submit" class="btn btn-primary">Confirm
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		{{#if error_msg}}
+		<div style="text-align: center">
+			<h4 style="font-weight: bold; color: red">{{error_msg}}</h4>
+		</div>
+		{{/if}}
+
+	</div>
+
+	<footer class="footer pt-3  "></footer>
+</main>
+
+<script src="/js/promotionAjax.js"></script>

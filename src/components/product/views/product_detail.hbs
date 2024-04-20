@@ -1,0 +1,478 @@
+<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+    <div class="container-fluid py-4">
+        <a href="/product" class="btn btn-primary align-bottom bg-success">
+            Return product list
+        </a>
+
+        {{#if active.editProduct}}
+        {{#product}}
+
+        <form id="edit-product-form" action="/product/edit/{{_id}}?_method=PUT" method="post"
+            enctype="multipart/form-data">
+            <input type="hidden" name="product-id" value="{{_id}}">
+            <div class="card pb-3 mb-4">
+                <div class="card-body ">
+                    <div class="row ">
+                        <div class="mb-3 col-sm-12 col-md-4">
+                            <div id="add-img">
+                                {{#img}}
+                                <div id="product-img-{{@index}}-wrap" class="row mb-2">
+                                    <div class="col-3">
+                                        <img src="{{this}}" class="in-avatar rounded float-start"
+                                            id="product-img-{{@index}}-show" alt="avatar">
+                                        <input type="hidden" name="exist_img" value="{{this}}">
+
+                                    </div>
+                                    <div class="col">
+                                        <b>Image {{@index}}:</b>
+                                        <a id="product-img-{{@index}}-minus"
+                                            onmousedown="removeImg('product-img-{{@index}}')">
+                                            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{/img}}
+                            </div>
+                            <a class="d-flex align-items-center" style="z-index: 2;" onmousedown="addImg()">
+                                <i class="fa fa-plus-square-o" aria-hidden="true" style="font-size: 35px;"></i>
+                            </a>
+
+                            <!--add img script-->
+                            <script>
+                                const number_existed_img = {{ img.length }};
+                                var number_add = number_existed_img;
+                                const add_img = document.getElementById('add-img');
+
+                                function addImg() {
+                                    console.log("add img");
+                                    var add_img_div = "<div id='product-img-" + number_add + "-wrap' class='row mb-2'> <div class='col-3'> <img src='/img/default-avtar.jpg' class='in-avatar rounded float-start'id='product-img-" + number_add + "-show' alt='avatar'> </div> <div class='col-12 col-md-9'> <b>Image " + number_add + ":</b>  <a id='product-img-" + number_add + "-minus'  onmousedown=\"removeImg('product-img-" + number_add + "')\"> <i class='fa fa-minus-circle' aria-hidden='true'></i>  </a> <input type='file' class='form-control' id=\"product-img-" + number_add + "-input\" name='img' accept='.jpg,.jpeg,.png' onchange='document.getElementById(\"product-img-" + number_add + "-show\").src = window.URL.createObjectURL(this.files[0])'>  </div>  </div >";
+                                    add_img.innerHTML += add_img_div;
+
+                                    for (let i = number_existed_img; i <= number_add; i++) {
+                                        const img = document.getElementById('product-img-' + i + '-show');
+                                        img.src = "/img/default-avtar.jpg";
+                                    }
+
+                                    number_add += 1;
+                                    console.log("num:", number_add);
+                                }
+
+                                function removeImg(id) {
+                                    console.log("remove", id)
+                                    document.getElementById(id + '-wrap').remove();
+                                    document.getElementById(id + '-show').remove();
+                                    document.getElementById(id + '-minus').remove();
+                                    document.getElementById(id + '-input').remove();
+                                }
+                            </script>
+                        </div>
+
+                        <div class="col">
+                            <div class="mx-md-5">
+                                <h3 class="card-title">
+                                    <input type="text" class="form-control mb-2 p-2" value="{{name}}" name="name"
+                                        style="font-size: 28px; font-weight:bold;">
+                                </h3>
+                                <div class="mb-4 d-flex">
+                                    <h3>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control"
+                                                aria-label="Dollar amount (with dot and two decimal places)"
+                                                value="{{price}}" name="price" onkeyup="checkPrice(this)"
+                                                style="font-size: 28px; font-weight:bold; width:150px;">
+                                            <span class="input-group-text"
+                                                style="font-size: 28px; font-weight:bold;">$</span>
+                                        </div>
+                                    </h3>
+
+                                    <span class="badge bg-info d-flex align-items-center ms-2" style="height: 30px;">
+                                        Best seller
+                                    </span>
+
+                                </div>
+
+                                <div class="mb-2 text-sm">
+                                    <b>Category: </b>
+                                    <span class="red-start">*</span>
+                                </div>
+                                <div class="px-3">
+                                    <div class="row">
+                                        <div class="form-check col-6">
+                                            <input class="form-check-input" type="radio" name="category" id="category"
+                                                value="Bags">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Bags
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-6">
+                                            <input class="form-check-input" type="radio" name="category" id="category"
+                                                value="Clothing">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Clothing
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-check col-6">
+                                            <input class="form-check-input" type="radio" name="category" id="category"
+                                                value="Shoes">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Shoes
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-6">
+                                            <input class="form-check-input" type="radio" name="category" id="category"
+                                                value="Accessories">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Accessories
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-2 d-flex align-items-center text-sm">
+                                    <b>Brand: </b>
+                                    <input type="text" class="form-control form-control-sm ms-2" name="brand"
+                                        value="{{brand}}" disabled>
+                                </div>
+
+                                <div class="mb-2 d-flex align-items-center text-sm">
+                                    <b>SKU: </b>
+                                    <input type="text" class="form-control form-control-sm ms-2" value="{{SKU}}"
+                                        name="SKU">
+                                </div>
+
+                                <div class="mb-2">
+                                    <div class="d-flex mb-2">
+                                        <b class="text-sm">Variation:&nbsp;</b>
+
+                                        <a class="d-flex align-items-center" style="z-index: 2"
+                                            onclick="addVariation('{{_id}}', null, null, 0, 0)">
+                                            <i class="fa fa-plus-square-o" aria-hidden="true"
+                                                style="font-size: 20px;"></i>
+                                        </a>
+
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <table class="table" id="variation-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>SIZE</th>
+                                                    <th>COLOR</th>
+                                                    <th>STOCK</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-secondary align-bottom mt-4" style="width: 120px;"
+                                    onmousedown="cancelEdit()">
+                                    Cancel
+                                </button>
+                                <button type="submit" class="btn btn-primary align-bottom ms-2 mt-4 bg-primary"
+                                    style=" width: 150px;" id="edit-product-btn">
+                                    Submit
+                                </button>
+                                {{!-- onclick="edit('{{_id}}')" --}}
+                                <h6 class="general-error" style="color: red; font-style: italic"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mb-3">Introduction</h4>
+            <div class="card">
+                <div class="card-body">
+                    <textarea class="form-control form-control-sm mb-2" name="description"
+                        id="exampleFormControlTextarea1" rows="4">{{introduction}}</textarea>
+                </div>
+            </div>
+
+            <h4 class="mb-3">Detail</h4>
+            <div class="card">
+                <div class="card-body">
+                    <textarea class="form-control form-control-sm mb-2" id="exampleFormControlTextarea1"
+                        name="detail_info" rows="4">{{infomation}}</textarea>
+                </div>
+            </div>
+
+        </form>
+
+        {{/product}}
+        {{else}}
+        {{#product}}
+        <div class="card pb-3 mb-4">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-12 col-md-5">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{thumbnail}}" class="d-block w-100" alt="image">
+                                </div>
+                                {{#img}}
+                                <div class="carousel-item">
+                                    <img src="{{this}}" class="d-block w-100" alt="image">
+                                </div>
+                                {{/img}}
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mx-md-5">
+                            <h3 class="card-title">{{name}}</h3>
+                            <div class="mb-4 d-flex">
+                                <h3><b class="">{{price}}$</b></h3>
+
+                                <span class="badge bg-info d-flex align-items-center ms-2" style="height: 30px;">
+                                    Best saler
+                                </span>
+
+                            </div>
+
+                            <div class="mb-2 text-sm"><b>Category: </b>{{category}}</div>
+                            <div class="mb-2 text-sm"><b>Brand: </b>{{brand}}</div>
+                            <div class="mb-2 text-sm"><b>Size: </b>
+                                {{#size}}
+                                {{this}}&nbsp;
+                                {{/size}}
+                            </div>
+                            <div class="mb-2 text-sm"><b>SKU: </b>{{SKU}}</div>
+                            <div class="d-flex align-items-center mb-2"><b class="text-sm">Color:&nbsp;</b>
+                                {{#color}}
+                                <div class="dot mx-1" style="background-color: {{this}};"></div>
+                                {{/color}}
+                            </div>
+                            <div class=" mb-3 text-sm">
+                                <b>Description:</b>
+                                The Body-Solid Tools MB148A Aluminum Lat Bar attaches to any pulley or cable
+                                weight
+                                machine
+                                and
+                                is ideal for several lat
+                                and upper body focused exercises like lat pulldowns, straight arm pulldowns and
+                                more.
+                                Constructed with high-strength
+                                1-¼” aluminum, the MB148A features knurled grips for easy handling throughout
+                                workouts.
+                                The
+                                MB148A’s aluminum
+                                construction is rust-proof and lightweight giving it distinct advantages over
+                                comparable
+                                steel
+                                cable attachment bars.
+                            </div>
+
+                            <div class="d-flex">
+                                <form action="/product/edit/{{_id}}?_method=DELETE" name="edit_product_form"
+                                    method="POST">
+                                    <button type="button" class="btn btn-danger align-bottom mt-4 me-3"
+                                        style="width: 150px;" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Delete
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Delete
+                                                        product</h5>
+
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure to delete this product ?</p>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal" aria-label="Close">Cancle
+                                                    </button>
+                                                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                                                        aria-label="Close">Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <form action="/product/edit/{{_id}}" name="edit_product_form" method="GET">
+                                    <button type="submit" class="btn btn-primary align-bottom mt-4"
+                                        style="width: 150px;" onmousedown="">Edit
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="mb-3">Product detail</h4>
+        <div class="card">
+            <div class="card-body">
+                Ideal for lat pulldowns, straight arm pulldowns & more <br>
+                Attach to any pulley or cable weight machine <br>
+                High-strength, rust-proof and lightweight 1-¼” aluminum <br>
+                Rotating and swiveling center for more fluid motion <br>
+                Product Weight: 3 <br>
+                2 lbs <br>
+            </div>
+        </div>
+        {{/product}}
+
+
+        {{/if}}
+    </div>
+
+    {{#product}}
+    <form action="/product/{{_id}}" id="cancel-edit-form" method="GET"></form>
+    <script>
+        function cancelEdit() {
+            document.getElementById("cancel-edit-form").submit();
+        }
+    </script>
+    {{/product}}
+
+    <footer class="footer pt-3  "></footer>
+</main>
+
+
+<div class="fixed-plugin">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <i class="fa fa-cog py-2"> </i>
+    </a>
+    <div class="card shadow-lg ">
+        <div class="card-header pb-0 pt-3 ">
+            <div class="float-start">
+                <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
+                <p>See our dashboard options.</p>
+            </div>
+            <div class="float-end mt-4">
+                <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                    <i class="fa fa-close"></i>
+                </button>
+            </div>
+            <!-- End Toggle Button -->
+        </div>
+        <hr class="horizontal dark my-1">
+        <div class="card-body pt-sm-3 pt-0">
+            <!-- Sidebar Backgrounds -->
+            <div>
+                <h6 class="mb-0">Sidebar Colors</h6>
+            </div>
+            <a href="javascript:void(0)" class="switch-trigger background-color">
+                <div class="badge-colors my-2 text-start">
+                    <span class="badge filter bg-gradient-primary active" data-color="primary"
+                        onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-success" data-color="success"
+                        onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-warning" data-color="warning"
+                        onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-danger" data-color="danger"
+                        onclick="sidebarColor(this)"></span>
+                </div>
+            </a>
+            <!-- Sidenav Type -->
+            <div class="mt-3">
+                <h6 class="mb-0">Sidenav Type</h6>
+                <p class="text-sm">Choose between 2 different sidenav types.</p>
+            </div>
+            <div class="d-flex">
+                <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent"
+                    onclick="sidebarType(this)">Transparent
+                </button>
+                <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white"
+                    onclick="sidebarType(this)">White
+                </button>
+            </div>
+            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+            <!-- Navbar Fixed -->
+            <div class="mt-3">
+                <h6 class="mb-0">Navbar Fixed</h6>
+            </div>
+            <div class="form-check form-switch ps-0">
+                <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
+                    onclick="navbarFixed(this)">
+            </div>
+        </div>
+    </div>
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
+        <div class="toast-header">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+
+<script src="/js/variationAjax.js"></script>
+
+{{!-- script show password --}}
+<script>
+    const togglePassword = document.querySelector("#togglePassword-passwd");
+    const toggleConfirmPassword = document.querySelector("#togglePassword-confirmPasswd");
+    const password = document.querySelector("#passwd");
+    const confirmPassword = document.querySelector("#confirm-passwd");
+
+    togglePassword.addEventListener("click", function () {
+
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        // toggle the eye icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+
+    });
+    toggleConfirmPassword.addEventListener("click", function () {
+
+        // toggle the type attribute
+        const type = confirmPassword.getAttribute("type") === "password" ? "text" : "password";
+        confirmPassword.setAttribute("type", type);
+        // toggle the eye icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+
+
+{{!-- load image from <file> to <img> --}}
+    <script>
+        document.getElementById('input-avatar').onchange = function (evt) {
+            const tgt = evt.target || window.event.srcElement,
+                files = tgt.files;
+
+            // FileReader support
+            if (FileReader && files && files.length) {
+                const fr = new FileReader();
+                fr.onload = function () {
+                    document.getElementById("avatar").src = fr.result;
+                }
+                fr.readAsDataURL(files[0]);
+            }
+
+            // Not supported
+            else {
+                // fallback -- perhaps submit the input to an iframe and temporarily store
+                // them on the server until the user's session ends.
+            }
+        }
+    </script>

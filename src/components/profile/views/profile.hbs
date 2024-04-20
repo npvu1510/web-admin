@@ -1,0 +1,377 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	.form-check-input:checked+.form-check-label {
+		background-color: transparent !important;
+	}
+</style>
+
+
+<div class="container-fluid">
+	<div class="page-header min-height-300 border-radius-xl mt-4"
+		style="background-image: url('/img/curved-images/curved0.jpg'); background-position-y: 50%;">
+		<span class="mask bg-gradient-primary opacity-6"></span>
+	</div>
+	<div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+		<div class="row gx-4">
+			<div class="col-auto">
+				<div class="avatar avatar-xl position-relative">
+					<img src="" id="img-avatar" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+				</div>
+			</div>
+			<div class="col-auto mt-2">
+				<div class="h-100">
+					<h5 class="mb-1" id="avt-fullname">
+					</h5>
+					<p class="mb-0 font-weight-bold text-sm" id="avt-role">
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+				<div class="nav-wrapper position-relative end-0">
+					<ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link mb-0 px-0 py-1 hover-zoom" data-bs-toggle="modal"
+								data-bs-target="#modalChangeAvatar">
+								<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+									xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px"
+									height="16px" viewBox="0 0 979.4 979.4" enable-background="new 0 0 297 297"
+									fill="#3a416f">
+									<g>
+										<g fill="rgb(134,131,169)">
+											<path class="color-background" d="M978.851,300.4c0-33.1-26.9-60-60-60h-77.701v470.2c0,17.5-3.4,34.6-10.199,50.6c-6.6,15.5-15.9,29.4-27.801,41.301
+										s-25.799,21.301-41.299,27.801c-16.102,6.799-33.102,10.199-50.602,10.199H239.75v78.9c0,33.1,26.9,60,60,60h619.101
+										c33.1,0,60-26.9,60-60V300.4L978.851,300.4z" />
+										</g>
+										<path class="color-background" d="M0.55,573.301h239.2h531.399V240.4V60c0-33.1-26.9-60-60-60H60.55c-33.1,0-60,26.9-60,60V573.301z M81.85,411.8
+										l200.7-255.3c16-20.4,46.9-20.4,62.9,0l65.9,83.9l80.7,102.6l40.4-51.4c16-20.4,46.9-20.4,62.9,0l94.5,120.2
+										c15.5,19.699,1.5,48.5-23.602,48.5h-82H399.85h-160.1h-134.3C80.45,460.3,66.45,431.5,81.85,411.8z" />
+										<path class="color-background"
+											d="M0.55,710.6c0,33.1,26.9,60,60,60h179.2h471.399c33.1,0,60-26.9,60-60v-57.299H239.75H0.55V710.6z" />
+									</g>
+								</svg>
+
+								<span class="ms-1">Change avatar</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link mb-0 px-0 py-1 hover-zoom" data-bs-toggle="modal"
+								data-bs-target="#modalChangePasswd">
+								<svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 40" version="1.1"
+									xmlns="http://www.w3.org/2000/svg">
+									<title>settings</title>
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF"
+											fill-rule="nonzero">
+											<g transform="translate(1716.000000, 291.000000)">
+												<g transform="translate(304.000000, 151.000000)">
+													<polygon class="color-background" opacity="0.596981957"
+														points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667">
+													</polygon>
+													<path class="color-background"
+														d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
+														opacity="0.596981957"></path>
+													<path class="color-background"
+														d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z">
+													</path>
+												</g>
+											</g>
+										</g>
+									</g>
+								</svg>
+								<span class="ms-1">Change password</span>
+							</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="check-profile-change-password">
+		</div>
+
+	</div>
+
+	<form action="/profile/edit/change-avatar" method="POST" id="change-avatar-form" enctype="multipart/form-data">
+		<div class="modal fade" id="modalChangeAvatar" tabindex="-1" aria-labelledby="modalChangeAvatar"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Change avatar</h5>
+					</div>
+					<div class="modal-body">
+						<b>Avatar:</b>
+						<input type="file" class="form-control form-control-sm" name="avatar_url"
+							accept=".jpg,.jpeg,.png">
+						<div class="w-100 d-flex flex-row justify-content-end mt-3">
+							<button type="button" id="cancle-btn" class="btn btn-secondary me-2" data-bs-dismiss="modal"
+								aria-label="Close">Cancle
+							</button>
+							<button type="submit" id="submit-img-btn" class="btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div class="modal fade" id="modalChangePasswd" tabindex="-1" aria-labelledby="modalChangePasswd" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Change password</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="card-body">
+						<div>
+							<b>Old password:</b> <span class="red-start">*</span>
+							<div class="input-group mb-3">
+								<input type="password" class="form-control" placeholder="Old password" id="old-passwd"
+									aria-label="Passwd" name="old_passwd">
+								<span class="input-group-text">
+									<i class="far fa-eye-slash" id="toggleOldPassword-passwd"></i>
+								</span>
+							</div>
+							<b>New password:</b> <span class="red-start">*</span>
+							<div class="mb-4">
+								<div class="input-group mb-2">
+									<input type="password" class="form-control" placeholder="New password"
+										id="new-passwd" aria-label="Passwd" name="new_passwd">
+									<span class="input-group-text">
+										<i class="far fa-eye-slash" id="toggleNewPassword-passwd"></i>
+									</span>
+								</div>
+								<div class="input-group mb-1">
+									<input type="password" class="form-control" id="confirm-passwd"
+										placeholder="Confirm new password" aria-label="Passwd" name="confirm_passwd">
+									<span class="input-group-text">
+										<i class="far fa-eye-slash" id="togglePassword-confirmPasswd"></i>
+									</span>
+								</div>
+
+								<span id="change-passwd-announce" style="color: red; visibility:hidden">
+									New password and confirm password are not match
+								</span>
+							</div>
+						</div>
+
+						<div class="w-100 d-flex flex-row justify-content-end ">
+							<button type="reset" id="cancle-pass" class="btn btn-secondary me-2" data-bs-dismiss="modal"
+								aria-label="Close" onmousedown="clearForm()">Cancle
+							</button>
+							<button type="button" id="submit-pass" class="btn btn-primary"
+								onmousedown="changePassword()">
+								Submit
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="container-fluid py-4">
+	<div class="row">
+		<div class="col-12 col-xl-6 mb-sm-3">
+			<div class="card h-100 ">
+				<div class="card-header pb-0 p-3">
+					<h6 class="mb-0">Platform Settings</h6>
+				</div>
+				<div class="card-body p-3">
+					<h6 class="text-uppercase text-body text-xs font-weight-bolder">Account</h6>
+					<ul class="list-group">
+						<li class="list-group-item border-0 px-0">
+							<div class="form-check form-switch ps-0">
+								<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault"
+									checked>
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+									for="flexSwitchCheckDefault">Email me when someone follows me</label>
+							</div>
+						</li>
+						<li class="list-group-item border-0 px-0">
+							<div class="form-check form-switch ps-0">
+								<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+									for="flexSwitchCheckDefault1">Email me when someone answers on my post</label>
+							</div>
+						</li>
+						<li class="list-group-item border-0 px-0">
+							<div class="form-check form-switch ps-0">
+								<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2"
+									checked>
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+									for="flexSwitchCheckDefault2">Email me when someone mentions me</label>
+							</div>
+						</li>
+					</ul>
+					<h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Application</h6>
+					<ul class="list-group">
+						<li class="list-group-item border-0 px-0">
+							<div class="form-check form-switch ps-0">
+								<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault3">
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+									for="flexSwitchCheckDefault3">New launches and projects</label>
+							</div>
+						</li>
+						<li class="list-group-item border-0 px-0">
+							<div class="form-check form-switch ps-0">
+								<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault4"
+									checked>
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+									for="flexSwitchCheckDefault4">Monthly product updates</label>
+							</div>
+						</li>
+						<li class="list-group-item border-0 px-0 pb-0">
+							<div class="form-check form-switch ps-0">
+								<input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault5">
+								<label class="form-check-label text-body ms-3 text-truncate w-80 mb-0"
+									for="flexSwitchCheckDefault5">Subscribe to newsletter</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-xl-6 mb-sm-3">
+			<div class="card h-100">
+				<div class="card-header pb-0 p-3">
+					<div class="row">
+						<div class="col-md-8 d-flex align-items-center">
+							<h6 class="mb-0">Profile Information</h6>
+						</div>
+						<div class="col-md-4 text-end">
+							<button type="submit" class="edit_info" id="edit-info-btn" value="true" onclick="getInfo()">
+								<i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
+									data-bs-placement="top" title="Edit Profile"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="card-body p-3" id="show-info">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<footer class="footer pt-3  "></footer>
+</div>
+
+
+
+{{!-- script show password --}}
+<script>
+	const toggleNewPassword = document.querySelector("#toggleNewPassword-passwd");
+	const toggleOldPassword = document.querySelector("#toggleOldPassword-passwd");
+	const toggleConfirmPassword = document.querySelector("#togglePassword-confirmPasswd");
+	const old_password = document.querySelector("#old-passwd");
+	const new_password = document.querySelector("#new-passwd");
+	const confirmPassword = document.querySelector("#confirm-passwd");
+
+	toggleOldPassword.addEventListener("click", function () {
+		// toggle the type attribute
+		const type = old_password.getAttribute("type") === "password" ? "text" : "password";
+		old_password.setAttribute("type", type);
+		// toggle the eye icon
+		this.classList.toggle('fa-eye');
+		this.classList.toggle('fa-eye-slash');
+
+	});
+
+	toggleNewPassword.addEventListener("click", function () {
+		// toggle the type attribute
+		const type = new_password.getAttribute("type") === "password" ? "text" : "password";
+		new_password.setAttribute("type", type);
+		// toggle the eye icon
+		this.classList.toggle('fa-eye');
+		this.classList.toggle('fa-eye-slash');
+
+	});
+
+	toggleConfirmPassword.addEventListener("click", function () {
+		// toggle the type attribute
+		const type = confirmPassword.getAttribute("type") === "password" ? "text" : "password";
+		confirmPassword.setAttribute("type", type);
+		// toggle the eye icon
+		this.classList.toggle('fa-eye');
+		this.classList.toggle('fa-eye-slash');
+	});
+</script>
+
+{{!-- change password script --}}
+<script>
+	const newPass = document.getElementById("new-passwd");
+	const confirmPass = document.getElementById("confirm-passwd");
+
+	function checkSamePass() {
+		let announce = document.getElementById("change-passwd-announce");
+		const submit_btn = document.getElementById('submit-pass');
+
+		if (newPass.value !== confirmPass.value) {
+			announce.style.visibility = "visible";
+			submit_btn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>&nbsp; Submit';
+			submit_btn.disabled = true;
+			return false;
+		} else {
+			submit_btn.innerHTML = 'Submit';
+			submit_btn.disabled = false;
+			return true;
+		}
+	}
+
+	confirmPass.addEventListener("blur", function () {
+		let announce = document.getElementById("change-passwd-announce");
+		const submit_btn = document.getElementById('submit-pass');
+
+		if (newPass.value !== confirmPass.value) {
+			announce.style.visibility = "visible";
+			submit_btn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>&nbsp; Submit';
+			submit_btn.disabled = true;
+		} else {
+			submit_btn.innerHTML = 'Submit';
+			submit_btn.disabled = false;
+		}
+	});
+
+	function clearForm() {
+		const submit_btn = document.getElementById('submit-pass');
+
+		submit_btn.innerHTML = 'Submit';
+		submit_btn.disabled = false;
+		document.getElementById("change-passwd-announce").style.visibility = "hidden";
+	}
+
+	function changePass() {
+		console.log("button change pass clicked");
+
+		const newPass = document.getElementById("new-passwd");
+		const confirmPass = document.getElementById("confirm-passwd");
+		const submit_btn = document.getElementById('submit-pass');
+
+		const cancle_btn = document.getElementById('cancle-pass');
+		const form = document.getElementById("change-passwd-form");
+
+		submit_btn.disabled = true;
+		console.log("disable submit button");
+
+		if (checkSamePass() === true) {
+			cancle_btn.disabled = true;
+			submit_btn.innerHTML = '<i class = "fa fa-spinner fa-spin"></i>&nbsp; Please wait...';
+			document.getElementById("change-passwd-announce").style.visibility = "hidden";
+
+			form.submit();
+		} else {
+			submit_btn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>&nbsp; Submit';
+
+		}
+	}
+</script>
+
+<script src="/js/profileAjax.js"></script>
